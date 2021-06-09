@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customers</title>
+    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     <!-- font awesome link -->
+     <script src="https://kit.fontawesome.com/c3d7ad459f.js" crossorigin="anonymous"></script>
+    <style>
+        .B{
+            display: flex;
+            background-color: lightblue;
+            padding: 7px;
+            width: 100%;
+            font-size: 20px;
+            
+        }
+        .B .p{
+            margin-top: 40px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .B ul{
+           margin-left: 700px;
+           
+        }
+        .B ul li{
+            display: inline-block;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+        .B ul li a{
+            list-style-type: none;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            padding: 20px;
+            
+        }
+        .B ul li a:hover{
+            background-color:grey;
+            border-radius: 10px; 
+            
+        }
+        .C{
+            text-align: center;
+            margin-top: 100px;
+        }
+        .table{
+            width: 70%;
+            height: 800px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .orange{
+            background-color: brown;
+        }
+        .footer{
+            background-color: lightslategray;
+            font-weight: 500;
+            text-align: center;
+            font-size: 15px;
+            color: black;
+            margin-bottom: -20px;
+            
+        }
+        .footer a{
+            color: black;
+            padding: 10px;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .footer i{
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .footer a:hover{
+            background-color: #ffff;
+            border-radius: 5px;
+        }
+    </style>
+    <body>
+        <div class="B">
+            <img src="bank.png" alt="" height="100px" width="150px">
+            <p class="p">Bharat Bank</p>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="#">CUSTOMERS</a></li>
+            </ul>
+        </div>
+        <div class="C">
+            <h1>Account Holder Name : Lakhyaraj Behera</h1>
+            <h2>Bank Balance : <span> 20000 </span> RS</h2>
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#sendMoney">Transfer Money</button>
+            <button type="button" class="btn btn-outline-info"  data-toggle="modal" data-target="#transactionHistory">Transaction History</button>
+        </div>
+         <!-- Modal send money -->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Transfer Money</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="transfer.php" method="POST">
+                        <div class="input-group mb-3">
+                        <input type="text" id="enterSName" class="form-control" placeholder="Sender's username"
+                            aria-label="Sender's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2" name="mail">@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2" name="name">User name</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rs. </span>
+                        </div>
+                        <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount:"
+                            aria-label="Amount" name="amount">
+                        <div class="input-group-append">
+                            <span class="input-group-text" >.00</span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal" name="submit">Transfer
+                    Money</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal transaction table-->
+        <center>
+        <table border="1" cellpadding="15"  class="table">
+            <thead>
+                <tr class="orange">
+                    <th>SI NO</th>
+                    <th>Account No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>87546982345</td>
+                <td>Nitesh Kumar Sahu</td>
+                <td>Nitesh768@gmail.com</td>
+                <td>350789.00 RS</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>14523897652</td>
+                <td>Rajendra Jena</td>
+                <td>Rajendra123@gmail.com</td>
+                <td>364789.00 RS</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>75124896324</td>
+                <td>Amiya Pradhan</td>
+                <td>Amiya2000@gmail.com</td>
+                <td>12000.00 RS</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>87564123954</td>
+                <td>Abhisekha Panda</td>
+                <td>Abhisekha2001@gmail.com</td>
+                <td>15000.00 RS</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>54698712456</td>
+                <td>Saswat Panigraghi</td>
+                <td>Saswat799@gmail.com</td>
+                <td>198564.00 RS</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>75489625489</td>
+                <td>Piyush Panda</td>
+                <td>Piyush2001@gmail.com</td>
+                <td>879654.00 RS</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>75842369852</td>
+                <td>Sarthak Sahu</td>
+                <td>Sarthak679@gmail.com</td>
+                <td>50000.00 RS</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>21003200450</td>
+                <td>Anuj Mishra</td>
+                <td>Anuj12345@gmail.com</td>
+                <td>64000.00 RS</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>90906048503</td>
+                <td>Amiya Mishra</td>
+                <td>Amiya2000@gmail.com</td>
+                <td>35000.00 RS</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>10002034506</td>
+                <td>V V Shrivasta</td>
+                <td>Shrivasta1996@gmail.com</td>
+                <td>40000.00 RS</td>
+            </tr>
+        </tbody>
+        </table>
+    </center>
+    <div class="footer">
+        Website Designed By Lakhyaraj 😃<br>UNDER @SFJUNE1
+        <br><a href=""><i class="fab fa-linkedin-in"></i></a> 
+        <a href=""><i class="fab fa-github"></i></a>
+        <a href=""><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <script>
+        function sendMoney(){
+        var enterName = document.getElementById("enterName").value;
+        var enterAmount = parseInt(document.getElementById("enterAmount").value);
+     var enterSName = document.getElementById("enterSName").value;
+      var findSenderBankAccount = enterSName + "BankBalance";
+        var enterSAmount =20000;
+        var balance = enterSAmount - enterAmount;
+        if (enterAmount > enterSAmount) {
+           alert("Insufficient Balance.")
+        }
+     else {
+         alert("Payment Sucessful.")
+        }
+     }
+    
+        </script>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+    </body>
+    
+</html>
